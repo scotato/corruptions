@@ -1,9 +1,10 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import styled from "styled-components";
 import { useWallet } from "@gimmixorg/use-wallet";
 import { useContract } from "../hooks/useContract";
-import { useWindow } from "../hooks/useWindow";
+// import { useWindow } from "../hooks/useWindow";
 import { useGraph } from "../hooks/useGraph";
+import { Character, CharacterCode } from "./Character";
 
 type Base64File = "json" | "svg";
 
@@ -18,13 +19,17 @@ const decode = (base: string, key: Base64File) => {
 };
 
 export const Corruptions = () => {
+  // const { square } = useWindow();
   const { account } = useWallet();
   const contract = useContract();
-  const { square } = useWindow();
   const graph = useGraph(account ?? "");
+  const [images, setImages] = useState<string[][][]>([]);
+  const [colors, setColors] = useState<string[]>([]);
 
   useEffect(() => {
     const getCorruptions = async () => {
+      let temp: string[][][] = [];
+      let tempC: string[] = [];
       const corruptions = graph.data.wallet?.corruptions;
       if (corruptions && contract) {
         for (const corruption of corruptions) {
@@ -32,24 +37,50 @@ export const Corruptions = () => {
           const tokenDecoded = decode(tokenBase64, "json");
           const token = JSON.parse(tokenDecoded);
           const svgDecoded = decode(token.image, "svg");
-          console.log("asd", svgDecoded);
+          const parts = svgDecoded.split('class="base">');
+          parts.shift();
+          const rows = parts.map((part) => part.substring(0, 31).split(""));
+          const color = svgDecoded.split(".base { fill: ")[1].substring(0, 7);
+          temp.push(rows);
+          tempC.push(color);
         }
       }
+      setImages(temp);
+      setColors(tempC);
     };
     getCorruptions();
   }, [graph.data.wallet?.corruptions, contract]);
 
   return (
     <SVG
-      viewBox={`0 0 ${square} ${square}`}
+      // viewBox={`0 0 ${square} ${square}`}
+      viewBox={`0 0 ${31 * 5} ${31 * 5}`}
       xmlns="http://www.w3.org/2000/svg"
-    ></SVG>
+      fill={colors[0]}
+    >
+      {images[0]?.map((row, indexRow) =>
+        row.map((char, indexChar) => {
+          return (
+            <g
+              transform={`translate(${indexChar * 5} ${indexRow * 5})`}
+              key={`${indexChar},${indexRow}`}
+            >
+              <Character char={char as CharacterCode} />
+            </g>
+          );
+        })
+      )}
+    </SVG>
   );
 };
 
 const SVG = styled.svg`
   display: block;
   margin: 0 auto;
+
+  rect {
+    fill: ${(props) => props.fill};
+  }
 `;
 
 // const Background = styled.rect`

@@ -1,6 +1,4 @@
-# exquisite graphics
-
-a [tiny-83](https://tiny-83.github.io/tiny-83/) graphics application.
+# corruptions
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/0144879f-0d70-4799-b8e8-c446f2b17a32/deploy-status)](https://app.netlify.com/sites/exquisite-graphics/deploys)
 

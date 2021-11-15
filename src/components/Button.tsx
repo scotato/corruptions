@@ -13,19 +13,14 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
 const ButtonStyled = styled.button`
   margin: 0;
   border: 0;
-  padding: 12px 16px;
-  font-size: 20px;
+  padding: 1em 1.5em;
   line-height: 1;
-  height: 48px;
-  font-family: inherit;
   cursor: pointer;
   will-change: background-color, border-radius;
   transition: 250ms ease-in-out background-color,
     250ms ease-in-out border-radius;
   font-weight: 600;
   text-transform: uppercase;
-  border-top-left-radius: 12px;
-  border-bottom-right-radius: 12px;
   background-color: ${(props) => props.theme.grayscale[75]};
   color: ${(props) => props.theme.grayscale[15]};
 

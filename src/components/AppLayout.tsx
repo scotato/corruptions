@@ -1,7 +1,6 @@
 import styled from "styled-components";
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
-// import { Logo } from "./Logo";
 import { ConnectWalletButton } from "./ConnectWalletButton";
 import { rainbow } from "../theme";
 
@@ -11,10 +10,7 @@ function AppLayout({ children }: { children: JSX.Element }) {
       <AppBody>
         {children}
         <AppFooter>
-          <div />
-          {/* <AppLink to="/">
-            <AppLogo />
-          </AppLink> */}
+          <AppLink to="/">corruption</AppLink>
           <AppLinks>
             {/* <AppLink to="/help">help</AppLink> */}
             <AppLinkExternal href="https://github.com/scotato/corruptions">
@@ -64,9 +60,16 @@ const AppFooter = styled.footer`
   flex-direction: ${(props) =>
     props.theme.window.isLandscape ? "row" : "column"};
   background-color: ${(props) => props.theme.grayscale[20]};
-  padding: 16px;
+  height: 64px;
+  padding: 20px;
   font-weight: 600;
   gap: 32px;
+
+  a,
+  p,
+  button {
+    font-size: 8px;
+  }
 `;
 
 const AppLinks = styled.div`
@@ -75,21 +78,17 @@ const AppLinks = styled.div`
   gap: 32px;
 `;
 
-// const AppLogo = styled(Logo)`
-//   height: 48px;
-// `;
+const AppLink = styled(Link)`
+  margin: 0;
+  fontsize: 20px;
+  color: ${(props) => props.theme.grayscale[50]};
+  text-decoration: none;
+  text-transform: uppercase;
 
-// const AppLink = styled(Link)`
-//   margin: 0;
-//   fontsize: 20px;
-//   color: ${(props) => props.theme.grayscale[50]};
-//   text-decoration: none;
-//   text-transform: uppercase;
-
-//   &:hover {
-//     animation: ${rainbow("color")} 2s linear infinite;
-//   }
-// `;
+  &:hover {
+    animation: ${rainbow("color")} 2s linear infinite;
+  }
+`;
 
 const AppLinkExternal = styled.a`
   margin: 0;

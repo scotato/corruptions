@@ -10,10 +10,10 @@ function AppLayout({ children }: { children: JSX.Element }) {
       <AppBody>
         {children}
         <AppFooter>
-          <AppLink to="/">corruption</AppLink>
+          <AppLink to="/">projections</AppLink>
           <AppLinks>
             {/* <AppLink to="/help">help</AppLink> */}
-            <AppLinkExternal href="https://github.com/scotato/corruptions">
+            <AppLinkExternal href="https://github.com/scotato/projections">
               github
             </AppLinkExternal>
             <AppLinkExternal href="https://twitter.com/scotato">
@@ -59,9 +59,8 @@ const AppFooter = styled.footer`
   justify-content: space-between;
   flex-direction: ${(props) =>
     props.theme.window.isLandscape ? "row" : "column"};
-  background-color: ${(props) => props.theme.grayscale[20]};
   height: 64px;
-  padding: 20px;
+  padding: 20px 0;
   font-weight: 600;
   gap: 32px;
 

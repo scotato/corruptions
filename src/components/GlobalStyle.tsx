@@ -1,10 +1,10 @@
 import { createGlobalStyle } from "styled-components";
-import "../fonts/corruption.css";
+import "../fonts/projection.css";
 
 export const GlobalStyle = createGlobalStyle`
   body {
     background-color: #262A36;
-    font-family: "corruption";
+    font-family: "projection";
   }
 
   p,

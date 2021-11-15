@@ -5,13 +5,13 @@ body {
   color: white;
   min-height: 100%;
   font-size: 20px;
-  font-family: "corruption", monospace, serif, sans-serif;
+  font-family: "projection", monospace, serif, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: "corruption", source-code-pro, Menlo, Monaco, Consolas,
+  font-family: "projection", source-code-pro, Menlo, Monaco, Consolas,
     "Courier New", monospace;
 }
 

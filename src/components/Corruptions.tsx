@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import styled from "styled-components";
 import { useWallet } from "@gimmixorg/use-wallet";
 import { useContract } from "../hooks/useContract";
-// import { useWindow } from "../hooks/useWindow";
 import { useGraph } from "../hooks/useGraph";
 import { Character, CharacterCode } from "./Character";
 
@@ -28,10 +27,11 @@ const decode = (base: string, key: Base64File) => {
 };
 
 export const Corruptions = () => {
-  // const { square } = useWindow();
   const { account } = useWallet();
   const contract = useContract();
-  const graph = useGraph(account ?? "");
+  const graph = useGraph(
+    account ?? "0xC6c41119Af1e0840357245c66baAf0e21B694D4d"
+  );
   const [images, setImages] = useState<string[][][]>([]);
   const [colors, setColors] = useState<string[]>([]);
 
@@ -64,7 +64,6 @@ export const Corruptions = () => {
 
   return (
     <SVG
-      // viewBox={`0 0 ${square} ${square}`}
       viewBox={`0 0 ${31 * 5} ${31 * 5}`}
       xmlns="http://www.w3.org/2000/svg"
       // @ts-ignore

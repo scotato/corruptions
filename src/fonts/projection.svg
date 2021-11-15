@@ -1,8 +1,9 @@
 <?xml version="1.0"?>
-<svg width="100%" height="100%" version="1.1" xmlns="http://www.w3.org/2000/svg">
+<svg width="100%" height="100%" version="1.1"
+	xmlns="http://www.w3.org/2000/svg">
 	<metadata>
 
-		Project: corruption
+		Project: projection
 		Font exported on 2021-11-15 at 0:01:49
 
 		Created with Glyphr Studio - the free, web-based font editor
@@ -13,16 +14,9 @@
 
 	</metadata>
 	<defs>
-		<font id="corruption" horiz-adv-x="300">
-			<font-face
-				units-per-em="300"
-				cap-height="300"
-				x-height="300"
-				ascent="300"
-				descent="0"
-				bbox="0, 0, 300, 300"
-				unicode-range="U+20-126"
-				font-family = "corruption"
+		<font id="projection" horiz-adv-x="300">
+			<font-face units-per-em="300" cap-height="300" x-height="300" ascent="300" descent="0" bbox="0, 0, 300, 300" unicode-range="U+20-126"
+				font-family = "projection"
 				font-style = "Regular"
 				panose-1 = "2 0 0 0 0 0 0 0 0 0"
 				designer = ""
@@ -48,11 +42,11 @@
 				overline-position = ""
 				overline-thickness = "">
 				<font-face-src>
-					<font-face-name name="corruption" />
+					<font-face-name name="projection" />
 				</font-face-src>
 			</font-face>
 
-		 	<missing-glyph horiz-adv-x="285.1429" d="M50,300 C50,300,235.143,300,235.143,300 C235.143,300,235.143,0,235.143,0 C235.143,0,50,0,50,0 C50,0,50,300,50,300Z M71.429,21.429 C71.429,21.429,213.714,21.429,213.714,21.429 C213.714,21.429,213.714,278.571,213.714,278.571 C213.714,278.571,71.429,278.571,71.429,278.571 C71.429,278.571,71.429,21.429,71.429,21.429Z" />
+			<missing-glyph horiz-adv-x="285.1429" d="M50,300 C50,300,235.143,300,235.143,300 C235.143,300,235.143,0,235.143,0 C235.143,0,50,0,50,0 C50,0,50,300,50,300Z M71.429,21.429 C71.429,21.429,213.714,21.429,213.714,21.429 C213.714,21.429,213.714,278.571,213.714,278.571 C213.714,278.571,71.429,278.571,71.429,278.571 C71.429,278.571,71.429,21.429,71.429,21.429Z" />
 
 			<!-- Ligatures -->
 
@@ -111,9 +105,9 @@
 		</font>
 	</defs>
 
-	<text x="100" y="150" style="font-size:48px;" font-family="corruption">corruption</text>
-	<text x="100" y="220" style="font-size:48px;" font-family="corruption">ABCDEFGHIJKLMNOPQRSTUVWXYZ</text>
-	<text x="100" y="290" style="font-size:48px;" font-family="corruption">abcdefghijklmnopqrstuvwxyz</text>
-	<text x="100" y="360" style="font-size:48px;" font-family="corruption">1234567890</text>
-	<text x="100" y="430" style="font-size:48px;" font-family="corruption">!"#$%&amp;'()*+,-./:;&lt;=&gt;?@[\]^_`{|}~</text>
+	<text x="100" y="150" style="font-size:48px;" font-family="projection">projection</text>
+	<text x="100" y="220" style="font-size:48px;" font-family="projection">ABCDEFGHIJKLMNOPQRSTUVWXYZ</text>
+	<text x="100" y="290" style="font-size:48px;" font-family="projection">abcdefghijklmnopqrstuvwxyz</text>
+	<text x="100" y="360" style="font-size:48px;" font-family="projection">1234567890</text>
+	<text x="100" y="430" style="font-size:48px;" font-family="projection">!"#$%&amp;'()*+,-./:;&lt;=&gt;?@[\]^_`{|}~</text>
 </svg>

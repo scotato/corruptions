@@ -1,6 +1,4 @@
-# corruptions
-
-[![Netlify Status](https://api.netlify.com/api/v1/badges/0144879f-0d70-4799-b8e8-c446f2b17a32/deploy-status)](https://app.netlify.com/sites/exquisite-graphics/deploys)
+# projections
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 

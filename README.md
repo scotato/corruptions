@@ -1,5 +1,7 @@
 # projections
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/f56c3e05-2d0f-49c3-a404-643c02160316/deploy-status)](https://app.netlify.com/sites/projections/deploys)
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts

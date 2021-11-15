@@ -3,7 +3,7 @@ import "../fonts/projection.css";
 
 export const GlobalStyle = createGlobalStyle`
   body {
-    background-color: #262A36;
+    background-color: ${(props) => props.theme.grayscale[10]};
     font-family: "projection";
   }
 

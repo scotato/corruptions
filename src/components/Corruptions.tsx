@@ -39,12 +39,11 @@ export const Corruptions = () => {
     const getCorruptions = async () => {
       let temp: string[][][] = [];
       let tempC: string[] = [];
-      // const corruptions = graph.data.wallet?.corruptions;
-      const corruptions = [4139];
+      const corruptions = graph.data.wallet?.corruptions;
 
       if (corruptions && contract) {
         for (const corruption of corruptions) {
-          const tokenBase64 = await contract.tokenURI(corruption);
+          const tokenBase64 = await contract.tokenURI(corruption.id);
           const tokenDecoded = decode(tokenBase64, "json");
           const token = JSON.parse(tokenDecoded);
           const svgDecoded = decode(token.image, "svg");

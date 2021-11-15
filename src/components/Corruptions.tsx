@@ -92,18 +92,3 @@ const SVG = styled.svg`
     fill: ${(props) => props.fill};
   }
 `;
-
-// const Background = styled.rect`
-//   fill: ${(props) => props.theme.grayscale[15]};
-// `;
-
-// const Pixel = styled.rect<{ isOn: boolean }>`
-//   cursor: pointer;
-//   will-change: fill;
-//   transition: 100ms ease-in-out fill;
-//   fill: ${(props) => props.theme.grayscale[props.isOn ? 25 : 75]};
-
-//   &:hover {
-//     fill: ${(props) => props.theme.grayscale[props.isOn ? 35 : 65]};
-//   }
-// `;

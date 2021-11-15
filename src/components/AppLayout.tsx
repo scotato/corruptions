@@ -8,9 +8,12 @@ function AppLayout({ children }: { children: JSX.Element }) {
   return (
     <AppContainer>
       <AppBody>
+        <AppHeader>
+          <AppLink to="/">projections</AppLink>
+          <ConnectWalletButton />
+        </AppHeader>
         {children}
         <AppFooter>
-          <AppLink to="/">projections</AppLink>
           <AppLinks>
             {/* <AppLink to="/help">help</AppLink> */}
             <AppLinkExternal href="https://github.com/scotato/projections">
@@ -20,7 +23,6 @@ function AppLayout({ children }: { children: JSX.Element }) {
               twitter
             </AppLinkExternal>
           </AppLinks>
-          <ConnectWalletButton />
         </AppFooter>
       </AppBody>
     </AppContainer>
@@ -40,17 +42,35 @@ const AppBody = styled.div`
   overflow: hidden;
   min-width: ${({ theme }) =>
     theme.window.isLandscape
-      ? theme.window.height - 64 - 82
+      ? theme.window.height - 64 - 64 - 64
       : theme.window.width - 64}px;
   max-width: ${({ theme }) =>
     theme.window.isLandscape
-      ? theme.window.height - 64 - 82
+      ? theme.window.height - 64 - 64 - 64
       : theme.window.width}px;
   min-height: ${({ theme }) =>
     theme.window.isLandscape
       ? theme.window.height - 64
       : theme.window.width - 64}px;
   max-height: ${({ theme }) => theme.window.height - 64}px;
+`;
+
+const AppHeader = styled.header`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: ${(props) =>
+    props.theme.window.isLandscape ? "row" : "column"};
+  height: 64px;
+  padding: 20px 0;
+  font-weight: 600;
+  gap: 32px;
+
+  a,
+  p,
+  button {
+    font-size: 8px;
+  }
 `;
 
 const AppFooter = styled.footer`

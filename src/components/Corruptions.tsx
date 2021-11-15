@@ -61,7 +61,20 @@ export const Corruptions = () => {
     getCorruptions();
   }, [graph.data.wallet?.corruptions, contract]);
 
-  return (
+  return graph.loading ? (
+    <div
+      style={{
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        width: "100%",
+        height: "calc(100% - 64px - 64px)",
+        opacity: 0.5,
+      }}
+    >
+      <p style={{ color: "white" }}>loading</p>
+    </div>
+  ) : (
     <SVG
       viewBox={`0 0 ${31 * 5} ${31 * 5}`}
       xmlns="http://www.w3.org/2000/svg"

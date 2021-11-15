@@ -8,6 +8,15 @@ import { Character, CharacterCode } from "./Character";
 
 type Base64File = "json" | "svg";
 
+const colorSwap = {
+  "#262A36": "#838383",
+  "#022FB7": "#2E82FF",
+  "#A802B7": "#C13CFF",
+  "#3CB702": "#00DC82",
+  "#B76F02": "#F8B73E",
+  "#B70284": "#FF44B7",
+};
+
 const base64Header = {
   json: "data:application/json;base64,",
   svg: "data:image/svg+xml;base64,",
@@ -30,10 +39,12 @@ export const Corruptions = () => {
     const getCorruptions = async () => {
       let temp: string[][][] = [];
       let tempC: string[] = [];
-      const corruptions = graph.data.wallet?.corruptions;
+      // const corruptions = graph.data.wallet?.corruptions;
+      const corruptions = [4139];
+
       if (corruptions && contract) {
         for (const corruption of corruptions) {
-          const tokenBase64 = await contract.tokenURI(corruption.id);
+          const tokenBase64 = await contract.tokenURI(corruption);
           const tokenDecoded = decode(tokenBase64, "json");
           const token = JSON.parse(tokenDecoded);
           const svgDecoded = decode(token.image, "svg");
@@ -56,7 +67,8 @@ export const Corruptions = () => {
       // viewBox={`0 0 ${square} ${square}`}
       viewBox={`0 0 ${31 * 5} ${31 * 5}`}
       xmlns="http://www.w3.org/2000/svg"
-      fill={colors[0]}
+      // @ts-ignore
+      fill={colorSwap[colors[0]]}
     >
       {images[0]?.map((row, indexRow) =>
         row.map((char, indexChar) => {

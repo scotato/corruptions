@@ -15,7 +15,12 @@ const providerOptions = {
 
 export const ConnectWalletButton = () => {
   const { connect, account } = useWallet();
-  if (account) return <ENSName address={account} />;
+  if (account)
+    return (
+      <p>
+        <ENSName address={account} />
+      </p>
+    );
   else
     return (
       <Button onClick={() => connect({ providerOptions })}>connect</Button>

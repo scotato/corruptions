@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Major+Mono+Display&display=swap");
+/* @import url("https://fonts.googleapis.com/css2?family=Major+Mono+Display&display=swap"); */
 
 body {
   margin: 0;
@@ -7,9 +7,9 @@ body {
   color: white;
   min-height: 100%;
   font-size: 20px;
-  font-family: "Major Mono Display", serif, sans-serif;
+  /* font-family: "Major Mono Display", serif, sans-serif;
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  -moz-osx-font-smoothing: grayscale; */
 }
 
 code {

@@ -42,7 +42,6 @@ const AppContainer = styled.div`
 
 const AppBody = styled.div`
   overflow: hidden;
-  border-radius: 24px;
   min-width: ${({ theme }) =>
     theme.window.isLandscape
       ? theme.window.height - 64 - 82
@@ -94,7 +93,6 @@ const AppLinks = styled.div`
 
 const AppLinkExternal = styled.a`
   margin: 0;
-  font-size: 20px;
   color: ${(props) => props.theme.grayscale[50]};
   text-decoration: none;
   text-transform: uppercase;

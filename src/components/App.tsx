@@ -5,17 +5,15 @@ import AppLayout from "../components/AppLayout";
 import ScrollToTop from "../components/ScrollToTop";
 import HomePage from "../pages/HomePage";
 import HelpPage from "../pages/HelpPage";
-import { useTheme } from "../hooks/useTheme";
 import { useWindow } from "../hooks/useWindow";
 import theme from "../theme";
 
 function App() {
-  const { grayscale } = useTheme();
   const window = useWindow();
 
   return (
     <Router>
-      <ThemeProvider theme={{ ...theme, grayscale, window }}>
+      <ThemeProvider theme={{ ...theme, window }}>
         <AppLayout>
           <Switch>
             <Route exact path="/">

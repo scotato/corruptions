@@ -47,7 +47,7 @@ export const useGraph = (address: string): WalletQuery => {
   const startLoading = () => setLoading(true);
   const stopLoading = () => setLoading(false);
   const clearError = () => setError("");
-
+  console.log(data, loading, error);
   useEffect(() => {
     if (!address) {
       setData({});

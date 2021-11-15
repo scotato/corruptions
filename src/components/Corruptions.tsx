@@ -40,7 +40,7 @@ export const Corruptions = () => {
       let temp: string[][][] = [];
       let tempC: string[] = [];
       const corruptions = graph.data.wallet?.corruptions;
-
+      console.log(corruptions, contract);
       if (corruptions && contract) {
         for (const corruption of corruptions) {
           const tokenBase64 = await contract.tokenURI(corruption.id);
@@ -61,20 +61,21 @@ export const Corruptions = () => {
     getCorruptions();
   }, [graph.data.wallet?.corruptions, contract]);
 
-  return graph.loading ? (
-    <div
-      style={{
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        width: "100%",
-        height: "calc(100% - 64px - 64px)",
-        opacity: 0.5,
-      }}
-    >
-      <p style={{ color: "white" }}>loading</p>
-    </div>
-  ) : (
+  if (graph.error)
+    return (
+      <Container>
+        <p>{graph.error}</p>
+      </Container>
+    );
+
+  if (graph.loading)
+    return (
+      <Container>
+        <p>loading</p>
+      </Container>
+    );
+
+  return (
     <SVG
       viewBox={`0 0 ${31 * 5} ${31 * 5}`}
       xmlns="http://www.w3.org/2000/svg"
@@ -104,4 +105,14 @@ const SVG = styled.svg`
   rect {
     fill: ${(props) => props.fill};
   }
+`;
+
+const Container = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: calc(100% - 64px - 64px);
+  opacity: 0.5;
+  color: white;
 `;

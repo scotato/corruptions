@@ -1,5 +1,6 @@
 // import { useEffect, useState } from "react";
 import styled from "styled-components";
+import portal from "../portal.json";
 
 // const colors = [
 //   "#838383",
@@ -33,165 +34,9 @@ const PortalQuarter = ({ quadrant }: { quadrant: number }) => {
       )}) translate(${translateByQuadrant(quadrant)})`}
     >
       <rect width="24" height="24" className="bg" />
-      <rect className="shade-half" x="0" y="23" />
-      <rect className="shade-quarter" x="20" y="2" />
-      <rect className="shade-quarter" x="20" y="3" />
-      <rect className="shade-quarter" x="21" y="2" />
-      <rect className="shade-quarter" x="21" y="3" />
-      <rect className="shade-half" x="20" y="23" />
-      <rect className="shade-half" x="21" y="23" />
-      <rect className="shade-half" x="0" y="2" />
-      <rect className="shade-half" x="0" y="3" />
-      <rect className="shade-quarter" x="5" y="3" />
-      <rect className="shade-quarter" x="5" y="4" />
-      <rect className="shade-quarter" x="6" y="3" />
-      <rect className="shade-quarter" x="6" y="4" />
-      <rect className="shade-half" x="10" y="5" />
-      <rect className="shade-half" x="10" y="6" />
-      <rect className="shade-half" x="11" y="5" />
-      <rect className="shade-half" x="11" y="6" />
-      <rect className="shade-half" x="17" y="12" />
-      <rect className="shade-half" x="17" y="13" />
-      <rect className="shade-half" x="18" y="12" />
-      <rect className="shade-half" x="18" y="13" />
-      <rect className="shade-quarter" x="19" y="17" />
-      <rect className="shade-quarter" x="19" y="18" />
-      <rect className="shade-quarter" x="20" y="17" />
-      <rect className="shade-quarter" x="20" y="18" />
-      <rect className="shade-quarter" x="14" y="8" />
-      <rect className="shade-quarter" x="14" y="9" />
-      <rect className="shade-quarter" x="15" y="8" />
-      <rect className="shade-quarter" x="15" y="9" />
-      <rect className="shade-half" x="15" y="3" />
-      <rect className="shade-half" x="15" y="4" />
-      <rect className="shade-half" x="16" y="3" />
-      <rect className="shade-half" x="16" y="4" />
-      <rect className="shade-half" x="19" y="7" />
-      <rect className="shade-half" x="19" y="8" />
-      <rect className="shade-half" x="20" y="7" />
-      <rect className="shade-half" x="20" y="8" />
-      <rect x="14" y="17" />
-      <rect x="14" y="18" />
-      <rect x="15" y="17" />
-      <rect x="15" y="18" />
-      <rect x="12" y="13" />
-      <rect x="12" y="14" />
-      <rect x="13" y="13" />
-      <rect x="13" y="14" />
-      <rect x="11" y="12" />
-      <rect x="12" y="12" />
-      <rect x="11" y="11" />
-      <rect x="11" y="13" />
-      <rect x="9" y="11" />
-      <rect x="10" y="11" />
-      <rect x="9" y="10" />
-      <rect x="10" y="10" />
-      <rect x="10" y="12" />
-      <rect x="13" y="15" />
-      <rect x="13" y="16" />
-      <rect x="14" y="15" />
-      <rect x="14" y="16" />
-      <rect x="2" y="20" />
-      <rect x="2" y="21" />
-      <rect x="3" y="20" />
-      <rect x="3" y="21" />
-      <rect x="3" y="22" />
-      <rect x="3" y="23" />
-      <rect x="4" y="22" />
-      <rect x="4" y="23" />
-      <rect x="0" y="19" />
-      <rect x="0" y="19" />
-      <rect x="0" y="20" />
-      <rect x="1" y="19" />
-      <rect x="1" y="20" />
-      <rect x="6" y="19" />
-      <rect x="6" y="20" />
-      <rect x="7" y="19" />
-      <rect x="7" y="20" />
-      <rect x="3" y="16" />
-      <rect x="3" y="17" />
-      <rect x="4" y="16" />
-      <rect x="4" y="17" />
-      <rect x="6" y="18" />
-      <rect x="5" y="18" />
-      <rect x="5" y="17" />
-      <rect x="7" y="21" />
-      <rect x="7" y="22" />
-      <rect x="7" y="23" />
-      <rect x="8" y="21" />
-      <rect x="8" y="22" />
-      <rect x="8" y="23" />
-      <rect x="0" y="15" />
-      <rect x="1" y="15" />
-      <rect x="2" y="15" />
-      <rect x="0" y="16" />
-      <rect x="1" y="16" />
-      <rect x="2" y="16" />
-      <rect x="10" y="18" />
-      <rect x="10" y="19" />
-      <rect x="11" y="18" />
-      <rect x="11" y="19" />
-      <rect x="4" y="12" />
-      <rect x="4" y="13" />
-      <rect x="5" y="12" />
-      <rect x="5" y="13" />
-      <rect x="9" y="16" />
-      <rect x="9" y="17" />
-      <rect x="10" y="16" />
-      <rect x="10" y="17" />
-      <rect x="8" y="16" />
-      <rect x="8" y="15" />
-      <rect x="8" y="14" />
-      <rect x="9" y="15" />
-      <rect x="6" y="13" />
-      <rect x="6" y="14" />
-      <rect x="7" y="13" />
-      <rect x="7" y="14" />
-      <rect x="7" y="15" />
-      <rect x="11" y="20" />
-      <rect x="11" y="21" />
-      <rect x="11" y="22" />
-      <rect x="11" y="23" />
-      <rect x="12" y="20" />
-      <rect x="12" y="21" />
-      <rect x="12" y="22" />
-      <rect x="12" y="23" />
-      <rect x="0" y="11" />
-      <rect x="1" y="11" />
-      <rect x="2" y="11" />
-      <rect x="3" y="11" />
-      <rect x="0" y="12" />
-      <rect x="1" y="12" />
-      <rect x="2" y="12" />
-      <rect x="3" y="12" />
-      <rect x="5" y="8" />
-      <rect x="5" y="9" />
-      <rect x="6" y="8" />
-      <rect x="6" y="9" />
-      <rect x="7" y="9" />
-      <rect x="7" y="10" />
-      <rect x="8" y="9" />
-      <rect x="8" y="10" />
-      <rect x="15" y="19" />
-      <rect x="15" y="20" />
-      <rect x="15" y="21" />
-      <rect x="15" y="22" />
-      <rect x="15" y="23" />
-      <rect x="16" y="19" />
-      <rect x="16" y="20" />
-      <rect x="16" y="21" />
-      <rect x="16" y="22" />
-      <rect x="16" y="23" />
-      <rect x="0" y="7" />
-      <rect x="1" y="7" />
-      <rect x="2" y="7" />
-      <rect x="3" y="7" />
-      <rect x="4" y="7" />
-      <rect x="0" y="8" />
-      <rect x="1" y="8" />
-      <rect x="2" y="8" />
-      <rect x="3" y="8" />
-      <rect x="4" y="8" />
+      {portal.map(([x, y, shade]) => (
+        <rect x={x} y={y} className={shadeByFloat(shade)} key={`${x},${y}`} />
+      ))}
     </g>
   );
 };
@@ -224,6 +69,18 @@ function translateByQuadrant(quadrant: number) {
   }
 }
 
+function shadeByFloat(shade: number) {
+  // className="shade-half"
+  switch (shade) {
+    case 0.25:
+      return "shade-quarter";
+    case 0.5:
+      return "shade-half";
+    default:
+      return "";
+  }
+}
+
 const SVG = styled.svg`
   display: block;
   margin: 0 auto;
@@ -235,14 +92,14 @@ const SVG = styled.svg`
     height: 1.1px;
   }
 
-  rect.shade-half {
-    // opacity: 0.5;
-    fill: hsl(323deg 100% 20%);
-  }
-
   rect.shade-quarter {
     // opacity: 0.75;
-    fill: hsl(323deg 100% 35%);
+    fill: hsl(323deg 100% 37.5%);
+  }
+
+  rect.shade-half {
+    // opacity: 0.5;
+    fill: hsl(323deg 100% 25%);
   }
 
   .bg {

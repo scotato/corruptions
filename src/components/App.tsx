@@ -5,6 +5,7 @@ import AppLayout from "../components/AppLayout";
 import ScrollToTop from "../components/ScrollToTop";
 import HomePage from "../pages/HomePage";
 import HelpPage from "../pages/HelpPage";
+import UnderworldPage from "../pages/UnderworldPage";
 import { useWindow } from "../hooks/useWindow";
 import theme from "../theme";
 
@@ -18,6 +19,9 @@ function App() {
           <Switch>
             <Route exact path="/">
               <HomePage />
+            </Route>
+            <Route exact path="/underworld">
+              <UnderworldPage />
             </Route>
             <Route exact path="/help">
               <HelpPage />

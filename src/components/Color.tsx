@@ -1,5 +1,5 @@
 export const colorsHSL = [
-  "hsl(0deg 0% 50%)",
+  "hsl(0deg 0% 70%)",
   "hsl(150deg 95% 45%)",
   "hsl(215deg 100% 45%)",
   "hsl(281deg 100% 55%)",

@@ -4,6 +4,7 @@ import { phrases } from "../components/Glyph";
 import { colors } from "../components/Color";
 
 function UnderworldPage() {
+  const [insight, setInsight] = useState(0);
   const [iterations, setIterations] = useState(0);
   const [corruptor, setCorruptor] = useState(0);
   const [phrase, setPhrase] = useState(0);
@@ -12,6 +13,7 @@ function UnderworldPage() {
   return (
     <>
       <Portal
+        insight={insight}
         iterations={iterations}
         phrase={phrases[phrase]}
         corruptor={phrases[corruptor]}
@@ -23,6 +25,14 @@ function UnderworldPage() {
         max="72"
         value={iterations}
         onChange={(e) => setIterations(Number(e.target.value))}
+        step="1"
+      />
+      <input
+        type="range"
+        min="0"
+        max="48"
+        value={insight}
+        onChange={(e) => setInsight(Number(e.target.value))}
         step="1"
       />
       <input

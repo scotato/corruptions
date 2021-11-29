@@ -1,13 +1,13 @@
 import styled from "styled-components";
-import { ReactComponent as STARS } from "../svgs/PORTAL-QUARTER-STARS.svg";
 import { Phrase, Glyph, GlyphSymbols } from "./Glyph";
 import { Color, colorToHSL } from "./Color";
 import { Rings } from "./Rings";
+import { Stars } from "./Stars";
 
 type PortalProps = {
   iterations: number;
-  insight?: number;
-  phrase?: Phrase;
+  insight: number;
+  phrase: Phrase;
   secret?: Phrase;
   corruptor?: Phrase;
   color: Color;
@@ -36,13 +36,13 @@ export const Portal = (props: PortalProps) => {
 
 const PortalQuadrant = (props: PortalQuadrantProps) => {
   const { quadrant, phrase, corruptor } = props;
-  // const remaining = Math.floor(quadrant / (props.iterations % 4));
   const iterations = Math.floor((props.iterations + 4 - quadrant) / 4);
+  const insight = Math.floor((props.insight + 4 - quadrant) / 4);
 
   return (
     <g transform={`scale(${scaleByQuadrant(quadrant)}) translate(24 0)`}>
       <Rings iterations={iterations} glyph={corruptor} />
-      <STARS />
+      <Stars insight={insight} />
       <Glyph name={phrase} x="0" y="21" opacity="0.25" />
     </g>
   );
@@ -62,17 +62,6 @@ function scaleByQuadrant(quadrant: number) {
   }
 }
 
-// function shadeByFloat(shade: number) {
-//   switch (shade) {
-//     case 0.25:
-//       return "shade-quarter";
-//     case 0.5:
-//       return "shade-half";
-//     default:
-//       return "";
-//   }
-// }
-
 const SVG = styled.svg<{ color: Color }>`
   display: block;
   margin: 0 auto;
@@ -81,10 +70,6 @@ const SVG = styled.svg<{ color: Color }>`
     fill: ${(props) => colorToHSL(props.color)};
     will-change: fill;
     transition: fill 0.2s ease-out;
-  }
-
-  .bg {
-    fill: black;
   }
 
   g {

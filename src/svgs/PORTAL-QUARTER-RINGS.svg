@@ -1,0 +1,21 @@
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+  xmlns="http://www.w3.org/2000/svg">
+  <use href="#corruption" y="6"/>
+  <use href="#pure" x="3" y="6"/>
+  <use href="#corruption" x="6" y="7"/>
+  <use href="#pure" x="9" y="8"/>
+  <use href="#corruption" x="11" y="10"/>
+  <use href="#pure" x="13" y="12"/>
+  <use href="#pure" x="14" y="15"/>
+  <use href="#corruption" x="15" y="18"/>
+  <use href="#corruption" x="15" y="21"/>
+  <use href="#pure" y="11"/>
+  <use href="#pure" x="3" y="12"/>
+  <use href="#corruption" x="6" y="13"/>
+  <use href="#pure" x="8" y="15"/>
+  <use href="#corruption" x="9" y="18"/>
+  <use href="#pure" x="10" y="21"/>
+  <use href="#corruption" y="17"/>
+  <use href="#corruption" x="3" y="18"/>
+  <use href="#pure" x="4" y="21"/>
+</svg>

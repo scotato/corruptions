@@ -1,3 +1,4 @@
+import { forwardRef } from "react";
 import { ReactComponent as CORRUPTION } from "../svgs/CORRUPTION-QUARTER.svg";
 import { ReactComponent as EVERYTHING } from "../svgs/EVERYTHING-QUARTER.svg";
 import { ReactComponent as EVERYWHERE } from "../svgs/EVERYWHERE-QUARTER.svg";
@@ -10,7 +11,7 @@ import { ReactComponent as TECHNOLOGY } from "../svgs/TECHNOLOGY-QUARTER.svg";
 import { ReactComponent as TEMPTATION } from "../svgs/TEMPTATION-QUARTER.svg";
 import { ReactComponent as UNDERWORLD } from "../svgs/UNDERWORLD-QUARTER.svg";
 
-const phrases = [
+export const phrases = [
   "corruption",
   "everything",
   "everywhere",
@@ -23,26 +24,38 @@ const phrases = [
   "temptation",
   "underworld",
 ] as const;
-type Phrase = typeof phrases[number];
+export type Phrase = typeof phrases[number];
 
+interface GlyphsProps {
+  name?: Phrase;
+}
 interface GlyphProps {
   name?: Phrase;
+  x?: number | string;
+  y?: number | string;
+  opacity?: number | string;
 }
 
 export const GlyphSymbols = () => (
   <>
     {phrases.map((phrase) => (
       <symbol id={phrase} key={phrase} width="3" height="3" viewBox="0 0 3 3">
-        <Glyph name={phrase} />
+        <Glyphs name={phrase} />
       </symbol>
     ))}
     <symbol id="pure" width="3" height="3" viewBox="0 0 3 3">
-      <Glyph />
+      <Glyphs />
     </symbol>
   </>
 );
 
-export const Glyph = ({ name }: GlyphProps) => {
+export const Glyph = forwardRef<SVGUseElement, GlyphProps>(
+  ({ name, ...props }, ref) => {
+    return <use ref={ref} href={`#${name || "pure"}`} {...props} />;
+  }
+);
+
+export const Glyphs = ({ name }: GlyphsProps) => {
   switch (name) {
     case "corruption":
       return <CORRUPTION />;

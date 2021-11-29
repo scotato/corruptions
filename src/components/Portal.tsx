@@ -1,12 +1,14 @@
 import styled from "styled-components";
-import { Glyph, GlyphSymbols } from "./Glyph";
-import { ReactComponent as RINGS } from "../svgs/PORTAL-QUARTER-RINGS.svg";
 import { ReactComponent as STARS } from "../svgs/PORTAL-QUARTER-STARS.svg";
+import { Phrase, Glyph, GlyphSymbols } from "./Glyph";
+import { Rings } from "./Rings";
 
 type PortalProps = {
-  iterations?: number;
-  phrase?: string;
-  secret?: string;
+  iterations: number;
+  insight?: number;
+  phrase?: Phrase;
+  secret?: Phrase;
+  corruptor?: Phrase;
 };
 
 type PortalQuadrantProps = PortalProps & {
@@ -21,23 +23,24 @@ export const Portal = (props: PortalProps) => {
       shape-rendering="crispEdges"
     >
       <GlyphSymbols />
-      <PortalQuadrant {...props} quadrant={1} />
-      <PortalQuadrant {...props} quadrant={2} />
-      <PortalQuadrant {...props} quadrant={3} />
-      <PortalQuadrant {...props} quadrant={4} />
+      <PortalQuadrant quadrant={1} {...props} />
+      <PortalQuadrant quadrant={2} {...props} />
+      <PortalQuadrant quadrant={3} {...props} />
+      <PortalQuadrant quadrant={4} {...props} />
     </SVG>
   );
 };
 
-const PortalQuadrant = ({ quadrant }: PortalQuadrantProps) => {
+const PortalQuadrant = (props: PortalQuadrantProps) => {
+  const { quadrant, corruptor } = props;
+  // const remaining = Math.floor(quadrant / (props.iterations % 4));
+  const iterations = Math.floor((props.iterations + 4 - quadrant) / 4);
+
   return (
     <g transform={`scale(${scaleByQuadrant(quadrant)}) translate(24 0)`}>
-      <RINGS />
+      <Rings iterations={iterations} glyph={corruptor} />
       <STARS />
-      <use href="#technology" x="0" y="21" opacity="0.25" />
-      {/* {pixels.map(([x, y, shade]) => (
-        <rect x={x} y={y} className={shadeByFloat(shade)} key={`${x},${y}`} />
-      ))} */}
+      <Glyph name="technology" x="0" y="21" opacity="0.25" />
     </g>
   );
 };

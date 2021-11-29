@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { ReactComponent as STARS } from "../svgs/PORTAL-QUARTER-STARS.svg";
 import { Phrase, Glyph, GlyphSymbols } from "./Glyph";
+import { Color, colorToHSL } from "./Color";
 import { Rings } from "./Rings";
 
 type PortalProps = {
@@ -9,6 +10,7 @@ type PortalProps = {
   phrase?: Phrase;
   secret?: Phrase;
   corruptor?: Phrase;
+  color: Color;
 };
 
 type PortalQuadrantProps = PortalProps & {
@@ -21,6 +23,7 @@ export const Portal = (props: PortalProps) => {
       viewBox={`0 0 48 48`}
       xmlns="http://www.w3.org/2000/svg"
       shape-rendering="crispEdges"
+      color={props.color}
     >
       <GlyphSymbols />
       <PortalQuadrant quadrant={1} {...props} />
@@ -70,20 +73,14 @@ function scaleByQuadrant(quadrant: number) {
 //   }
 // }
 
-const SVG = styled.svg`
+const SVG = styled.svg<{ color: Color }>`
   display: block;
   margin: 0 auto;
 
   rect:not(.bg) {
-    fill: hsl(323deg 100% 50%);
-  }
-
-  rect.shade-quarter {
-    fill: hsl(323deg 100% 37.5%);
-  }
-
-  rect.shade-half {
-    fill: hsl(323deg 100% 25%);
+    fill: ${(props) => colorToHSL(props.color)};
+    will-change: fill;
+    transition: fill 0.2s ease-out;
   }
 
   .bg {

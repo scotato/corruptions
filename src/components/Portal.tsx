@@ -69,7 +69,7 @@ const SVG = styled.svg<{ color: Color }>`
   rect:not(.bg) {
     fill: ${(props) => colorToHSL(props.color)};
     will-change: fill;
-    transition: fill 0.2s ease-out;
+    transition: fill 1.2s ease-out;
   }
 
   g {

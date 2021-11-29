@@ -5,6 +5,7 @@ import { colors } from "../components/Color";
 
 function UnderworldPage() {
   const [iterations, setIterations] = useState(0);
+  const [corruptor, setCorruptor] = useState(0);
   const [phrase, setPhrase] = useState(0);
   const [color, setColor] = useState(0);
 
@@ -12,7 +13,8 @@ function UnderworldPage() {
     <>
       <Portal
         iterations={iterations}
-        corruptor={phrases[phrase]}
+        phrase={phrases[phrase]}
+        corruptor={phrases[corruptor]}
         color={colors[color]}
       />
       <input
@@ -29,6 +31,14 @@ function UnderworldPage() {
         max="9"
         value={phrase}
         onChange={(e) => setPhrase(Number(e.target.value))}
+        step="1"
+      />
+      <input
+        type="range"
+        min="0"
+        max="9"
+        value={corruptor}
+        onChange={(e) => setCorruptor(Number(e.target.value))}
         step="1"
       />
       <input

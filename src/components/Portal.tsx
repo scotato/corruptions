@@ -35,7 +35,7 @@ export const Portal = (props: PortalProps) => {
 };
 
 const PortalQuadrant = (props: PortalQuadrantProps) => {
-  const { quadrant, corruptor } = props;
+  const { quadrant, phrase, corruptor } = props;
   // const remaining = Math.floor(quadrant / (props.iterations % 4));
   const iterations = Math.floor((props.iterations + 4 - quadrant) / 4);
 
@@ -43,7 +43,7 @@ const PortalQuadrant = (props: PortalQuadrantProps) => {
     <g transform={`scale(${scaleByQuadrant(quadrant)}) translate(24 0)`}>
       <Rings iterations={iterations} glyph={corruptor} />
       <STARS />
-      <Glyph name="technology" x="0" y="21" opacity="0.25" />
+      <Glyph name={phrase} x="0" y="21" opacity="0.25" />
     </g>
   );
 };

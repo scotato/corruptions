@@ -25,6 +25,7 @@ export const Stars = ({ insight }: StarsProps) => {
       viewBox="0 0 24 24"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
+      className="stars"
     >
       {positions.map(([x, y, opacity], i) => (
         <rect

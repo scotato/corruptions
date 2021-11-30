@@ -18,11 +18,13 @@ type PortalQuadrantProps = PortalProps & {
   quadrant: number;
 };
 
+// max iterations: 72
+
 export const Portal = ({ corruption }: { corruption: Corruption }) => {
   console.log(corruption);
   const props = {
     insight: corruption.insight,
-    iterations: corruption.iterations,
+    iterations: Math.round((72 * corruption.iterations) / 1024),
     phrase: corruption.phrasePrimary.toLowerCase(),
     corruptor: corruption.phrasePrimary.toLowerCase(),
     // corruptor: corruption.corruptor.toLowerCase(),
@@ -77,7 +79,8 @@ const SVG = styled.svg<{ color: string }>`
   display: block;
   margin: 0 auto;
 
-  rect:not(.bg) {
+  .stars rect,
+  use {
     fill: ${(props) => props.color};
     will-change: fill;
     transition: fill 1.2s ease-out;

@@ -7,24 +7,22 @@ import { rainbow } from "../theme";
 function AppLayout({ children }: { children: JSX.Element }) {
   return (
     <AppContainer>
-      <AppBody>
-        <AppHeader>
-          <AppLink to="/">projections</AppLink>
-          <ConnectWalletButton />
-        </AppHeader>
-        {children}
-        <AppFooter>
-          <AppLinks>
-            <AppLink to="/help">help</AppLink>
-            <AppLinkExternal href="https://github.com/scotato/projections">
-              github
-            </AppLinkExternal>
-            <AppLinkExternal href="https://twitter.com/scotato">
-              twitter
-            </AppLinkExternal>
-          </AppLinks>
-        </AppFooter>
-      </AppBody>
+      <AppHeader>
+        <AppLink to="/">projections</AppLink>
+        <ConnectWalletButton />
+      </AppHeader>
+      <AppBody>{children}</AppBody>
+      <AppFooter>
+        <AppLinks>
+          <AppLink to="/help">help</AppLink>
+          <AppLinkExternal href="https://github.com/scotato/projections">
+            github
+          </AppLinkExternal>
+          <AppLinkExternal href="https://twitter.com/scotato">
+            twitter
+          </AppLinkExternal>
+        </AppLinks>
+      </AppFooter>
     </AppContainer>
   );
 }
@@ -32,30 +30,20 @@ function AppLayout({ children }: { children: JSX.Element }) {
 const AppContainer = styled.div`
   display: grid;
   margin: 0 auto;
-  padding: 32px;
-  max-width: 1600px;
+  padding: 32px 48px;
+  max-width: 100vw;
+  width: 1280px;
   min-height: 100vh;
-  place-content: center;
+  grid-template-rows: auto 1fr auto;
 `;
 
 const AppBody = styled.div`
   display: flex;
+  padding: 32px 0;
   flex-direction: column;
   justify-content: center;
-  overflow: hidden;
-  min-width: ${({ theme }) =>
-    theme.window.isLandscape
-      ? theme.window.height - 128 - 128 - 64
-      : theme.window.width - 64}px;
-  max-width: ${({ theme }) =>
-    theme.window.isLandscape
-      ? theme.window.height - 128 - 128 - 64
-      : theme.window.width}px;
-  min-height: ${({ theme }) =>
-    theme.window.isLandscape
-      ? theme.window.height - 128
-      : theme.window.width - 64}px;
-  // max-height: ${({ theme }) => theme.window.height - 128}px;
+  width: 100%;
+  height: 100%;
 `;
 
 const AppHeader = styled.header`
@@ -64,8 +52,7 @@ const AppHeader = styled.header`
   justify-content: space-between;
   flex-direction: ${(props) =>
     props.theme.window.isLandscape ? "row" : "column"};
-  height: 128px;
-  padding: 20px 0;
+  height: 64px;
   font-weight: 600;
   gap: 32px;
 
@@ -79,11 +66,10 @@ const AppHeader = styled.header`
 const AppFooter = styled.footer`
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   flex-direction: ${(props) =>
     props.theme.window.isLandscape ? "row" : "column"};
-  height: 128px;
-  padding: 20px 0;
+  height: 64px;
   font-weight: 600;
   gap: 32px;
 

@@ -30,6 +30,7 @@ export const Stars = ({ insight }: StarsProps) => {
         <rect
           x={x}
           y={y}
+          key={`${x},${y}`}
           width="2"
           height="2"
           opacity={insight > i ? opacity : 0.1}

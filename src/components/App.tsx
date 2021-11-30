@@ -5,7 +5,7 @@ import AppLayout from "../components/AppLayout";
 import ScrollToTop from "../components/ScrollToTop";
 import HomePage from "../pages/HomePage";
 import HelpPage from "../pages/HelpPage";
-import UnderworldPage from "../pages/UnderworldPage";
+import DebugPage from "../pages/DebugPage";
 import { useWindow } from "../hooks/useWindow";
 import theme from "../theme";
 
@@ -20,8 +20,8 @@ function App() {
             <Route exact path="/">
               <HomePage />
             </Route>
-            <Route exact path="/underworld">
-              <UnderworldPage />
+            <Route exact path="/debug">
+              <DebugPage />
             </Route>
             <Route exact path="/help">
               <HelpPage />

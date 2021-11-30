@@ -18,20 +18,6 @@ const walletQuery = gql`
   }
 `;
 
-type Wallet = {
-  id: String;
-  corruptions: [Corruption];
-};
-
-type Corruption = {
-  id: number;
-  transferCount: string;
-  savedXP: string;
-  lastTransferredBlock: string;
-  timeToMint: string;
-  owner: Wallet;
-};
-
 type WalletQuery = {
   data: {
     wallet?: Wallet;
@@ -47,7 +33,7 @@ export const useGraph = (address: string): WalletQuery => {
   const startLoading = () => setLoading(true);
   const stopLoading = () => setLoading(false);
   const clearError = () => setError("");
-  console.log(data, loading, error);
+
   useEffect(() => {
     if (!address) {
       setData({});

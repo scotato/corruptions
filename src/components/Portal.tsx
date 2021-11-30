@@ -1,8 +1,9 @@
 import styled from "styled-components";
 import { Phrase, Glyph, GlyphSymbols } from "./Glyph";
-import { Color, colorToHSL } from "./Color";
+import { Color } from "./Color";
 import { Rings } from "./Rings";
 import { Stars } from "./Stars";
+// import { colors } from "./Color";
 
 type PortalProps = {
   iterations: number;
@@ -17,19 +18,29 @@ type PortalQuadrantProps = PortalProps & {
   quadrant: number;
 };
 
-export const Portal = (props: PortalProps) => {
+export const Portal = ({ corruption }: { corruption: Corruption }) => {
+  console.log(corruption);
+  const props = {
+    insight: corruption.insight,
+    iterations: corruption.iterations,
+    phrase: corruption.phrasePrimary.toLowerCase(),
+    corruptor: corruption.phrasePrimary.toLowerCase(),
+    // corruptor: corruption.corruptor.toLowerCase(),
+    color: corruption.color,
+  } as PortalQuadrantProps;
+
   return (
     <SVG
       viewBox={`0 0 48 48`}
       xmlns="http://www.w3.org/2000/svg"
       shape-rendering="crispEdges"
-      color={props.color}
+      color={corruption.color}
     >
       <GlyphSymbols />
-      <PortalQuadrant quadrant={1} {...props} />
-      <PortalQuadrant quadrant={2} {...props} />
-      <PortalQuadrant quadrant={3} {...props} />
-      <PortalQuadrant quadrant={4} {...props} />
+      <PortalQuadrant {...props} quadrant={1} />
+      <PortalQuadrant {...props} quadrant={2} />
+      <PortalQuadrant {...props} quadrant={3} />
+      <PortalQuadrant {...props} quadrant={4} />
     </SVG>
   );
 };
@@ -62,12 +73,12 @@ function scaleByQuadrant(quadrant: number) {
   }
 }
 
-const SVG = styled.svg<{ color: Color }>`
+const SVG = styled.svg<{ color: string }>`
   display: block;
   margin: 0 auto;
 
   rect:not(.bg) {
-    fill: ${(props) => colorToHSL(props.color)};
+    fill: ${(props) => props.color};
     will-change: fill;
     transition: fill 1.2s ease-out;
   }
